@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>외국인 인력 채용 서비스</title>
+  <!-- Bootstrap CSS (Tailwind 혹은 다른 CSS 프레임워크 사용 가능) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9f9f9;
+    }
+    .section {
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+    .feature-box {
+      border: 1px solid #ddd;
+      padding: 20px;
+      margin: 10px;
+      border-radius: 8px;
+      background-color: #fff;
+    }
+    .required::after {
+      content: " *";
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- 랜딩 페이지 섹션 -->
+    <div id="landing-section" class="section text-center">
+      <h1>외국인 인력 채용 서비스</h1>
+      <p class="lead">회사와 구직자 모두가 만족하는 인연 연결</p>
+      <div class="row">
+        <!-- 서비스 특징 4개 강조 -->
+        <div class="col-md-3 col-6">
+          <div class="feature-box">
+            <h5>신속한 연결</h5>
+            <p>빠른 인력 매칭</p>
+          </div>
+        </div>
+        <div class="col-md-3 col-6">
+          <div class="feature-box">
+            <h5>맞춤 채용</h5>
+            <p>필요 역량 지원</p>
+          </div>
+        </div>
+        <div class="col-md-3 col-6">
+          <div class="feature-box">
+            <h5>간편 등록</h5>
+            <p>쉽게 정보 입력</p>
+          </div>
+        </div>
+        <div class="col-md-3 col-6">
+          <div class="feature-box">
+            <h5>실시간 알림</h5>
+            <p>즉각적 소통</p>
+          </div>
+        </div>
+      </div>
+      <button id="start-registration" class="btn btn-danger btn-lg mt-4">구인정보 등록하기</button>
+    </div>
+
+    <!-- 구인정보 등록 페이지 섹션 -->
+    <div id="registration-section" class="section" style="display: none;">
+      <h2 class="text-center mb-4">구인정보 등록</h2>
+      <form id="jobForm">
+        <!-- 1. 회사 이름 -->
+        <div class="mb-3">
+          <label for="companyName" class="form-label required">회사 이름</label>
+          <input type="text" id="companyName" class="form-control" required>
+        </div>
+        <!-- 2. 담당자 이름 -->
+        <div class="mb-3">
+          <label for="contactName" class="form-label required">담당자 이름</label>
+          <input type="text" id="contactName" class="form-control" required>
+        </div>
+        <!-- 3. 담당자 연락처 -->
+        <div class="mb-3">
+          <label for="contactPhone" class="form-label required">담당자 연락처 <small>(예: 010-1234-5678)</small></label>
+          <input type="text" id="contactPhone" class="form-control" required>
+        </div>
+        <!-- 4. 담당자 이메일 -->
+        <div class="mb-3">
+          <label for="contactEmail" class="form-label required">담당자 이메일</label>
+          <input type="email" id="contactEmail" class="form-control" required>
+          <div class="form-text">입력 시 정확한 이메일을 기입해 주세요.</div>
+        </div>
+        <!-- 5. 모집 직종 -->
+        <div class="mb-3">
+          <label for="jobType" class="form-label required">모집 직종</label>
+          <select id="jobType" class="form-select" required>
+            <option value="">선택하세요</option>
+            <option value="공장">공장</option>
+            <option value="식당">식당</option>
+            <option value="사무직">사무직</option>
+            <option value="배달">배달</option>
+            <option value="청소">청소</option>
+            <option value="농장">농장</option>
+            <option value="창고">창고</option>
+            <option value="건설">건설</option>
+            <option value="기타">기타</option>
+          </select>
+        </div>
+        <!-- 6. 채용 가능 비자 -->
+        <div class="mb-3">
+          <label class="form-label required">채용 가능 비자</label>
+          <div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name="visa" value="E9" id="visaE9">
+              <label class="form-check-label" for="visaE9">E9</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name="visa" value="H2" id="visaH2">
+              <label class="form-check-label" for="visaH2">H2</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name="visa" value="F2" id="visaF2">
+              <label class="form-check-label" for="visaF2">F2</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name="visa" value="F4" id="visaF4">
+              <label class="form-check-label" for="visaF4">F4</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name="visa" value="F5" id="visaF5">
+              <label class="form-check-label" for="visaF5">F5</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name="visa" value="F6" id="visaF6">
+              <label class="form-check-label" for="visaF6">F6</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name="visa" value="D2" id="visaD2">
+              <label class="form-check-label" for="visaD2">D2</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name="visa" value="D4" id="visaD4">
+              <label class="form-check-label" for="visaD4">D4</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name="visa" value="E7" id="visaE7">
+              <label class="form-check-label" for="visaE7">E7</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name="visa" value="무관" id="visaNone">
+              <label class="form-check-label" for="visaNone">무관</label>
+            </div>
+          </div>
+        </div>
+        <!-- 7. 선호 국적 -->
+        <div class="mb-3">
+          <label class="form-label required">선호 국적</label>
+          <div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name="nationality" value="베트남" id="nationVietnam">
+              <label class="form-check-label" for="nationVietnam">베트남</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name="nationality" value="중국" id="nationChina">
+              <label class="form-check-label" for="nationChina">중국</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name="nationality" value="태국" id="nationThailand">
+              <label class="form-check-label" for="nationThailand">태국</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name="nationality" value="필리핀" id="nationPhilippines">
+              <label class="form-check-label" for="nationPhilippines">필리핀</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name="nationality" value="인도네시아" id="nationIndonesia">
+              <label class="form-check-label" for="nationIndonesia">인도네시아</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name="nationality" value="네팔" id="nationNepal">
+              <label class="form-check-label" for="nationNepal">네팔</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name="nationality" value="우즈베키스탄" id="nationUzbekistan">
+              <label class="form-check-label" for="nationUzbekistan">우즈베키스탄</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name="nationality" value="미얀마" id="nationMyanmar">
+              <label class="form-check-label" for="nationMyanmar">미얀마</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name="nationality" value="캄보디아" id="nationCambodia">
+              <label class="form-check-label" for="nationCambodia">캄보디아</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name="nationality" value="파키스탄" id="nationPakistan">
+              <label class="form-check-label" for="nationPakistan">파키스탄</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name="nationality" value="방글라데시" id="nationBangladesh">
+              <label class="form-check-label" for="nationBangladesh">방글라데시</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name="nationality" value="인도" id="nationIndia">
+              <label class="form-check-label" for="nationIndia">인도</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name="nationality" value="스리랑카" id="nationSriLanka">
+              <label class="form-check-label" for="nationSriLanka">스리랑카</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name="nationality" value="러시아" id="nationRussia">
+              <label class="form-check-label" for="nationRussia">러시아</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name="nationality" value="우크라이나" id="nationUkraine">
+              <label class="form-check-label" for="nationUkraine">우크라이나</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name="nationality" value="아프리카" id="nationAfrica">
+              <label class="form-check-label" for="nationAfrica">아프리카</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name="nationality" value="카자흐스탄" id="nationKazakhstan">
+              <label class="form-check-label" for="nationKazakhstan">카자흐스탄</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name="nationality" value="몽골" id="nationMongolia">
+              <label class="form-check-label" for="nationMongolia">몽골</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name="nationality" value="기타" id="nationEtc">
+              <label class="form-check-label" for="nationEtc">기타</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name="nationality" value="무관" id="nationNone">
+              <label class="form-check-label" for="nationNone">무관</label>
+            </div>
+          </div>
+        </div>
+        <!-- 8. 한국어 수준 -->
+        <div class="mb-3">
+          <label for="koreanLevel" class="form-label required">한국어 수준</label>
+          <select id="koreanLevel" class="form-select" required>
+            <option value="">선택하세요</option>
+            <option value="상급">상급 (업무 의사소통 능숙)</option>
+            <option value="중급">중급 (일상 회화 가능)</option>
+            <option value="초급">초급 (기본 의사소통 가능)</option>
+            <option value="무관">무관</option>
+          </select>
+        </div>
+        <!-- 9. 근무 지역 (드롭다운 + 상세주소 입력) -->
+        <div class="mb-3">
+          <label class="form-label required">근무 지역</label>
+          <div class="row">
+            <div class="col-md-6">
+              <select id="workRegion" class="form-select" required>
+                <option value="">지역 선택</option>
+                <option value="서울">서울</option>
+                <option value="부산">부산</option>
+                <option value="대구">대구</option>
+                <option value="인천">인천</option>
+                <option value="광주">광주</option>
+                <option value="대전">대전</option>
+                <option value="울산">울산</option>
+                <option value="세종">세종</option>
+                <option value="기타">기타</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <input type="text" id="workAddress" class="form-control" placeholder="상세주소" required>
+            </div>
+          </div>
+        </div>
+        <!-- 10. 숙소 제공 여부 (라디오 버튼) -->
+        <div class="mb-3">
+          <label class="form-label required">숙소 제공 여부</label>
+          <div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="housing" id="housingYes" value="있음" required>
+              <label class="form-check-label" for="housingYes">숙소 제공 있음</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="housing" id="housingNo" value="없음" required>
+              <label class="form-check-label" for="housingNo">숙소 제공 없음</label>
+            </div>
+          </div>
+        </div>
+        <!-- 11. 근무 시간 (드롭다운 + 상세 입력란) -->
+        <div class="mb-3">
+          <label class="form-label required">근무 시간</label>
+          <div class="row">
+            <div class="col-md-6">
+              <select id="workTime" class="form-select" required>
+                <option value="">시간대 선택</option>
+                <option value="09:00-18:00">09:00-18:00</option>
+                <option value="교대근무">교대근무</option>
+                <option value="유연근무">유연근무</option>
+                <option value="기타">기타</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <input type="text" id="workTimeDetail" class="form-control" placeholder="상세 근무 시간" required>
+            </div>
+          </div>
+        </div>
+        <!-- 12. 계약 형태 -->
+        <div class="mb-3">
+          <label for="contractType" class="form-label required">계약 형태</label>
+          <select id="contractType" class="form-select" required>
+            <option value="">선택하세요</option>
+            <option value="장기">장기</option>
+            <option value="단기">단기</option>
+          </select>
+        </div>
+        <!-- 13. 필요한 기술/자격 (체크박스 다중 선택) -->
+        <div class="mb-3">
+          <label class="form-label">필요한 기술/자격</label>
+          <div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name="skill" value="지게차 운전" id="skillForklift">
+              <label class="form-check-label" for="skillForklift">지게차 운전</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name="skill" value="자동차 운전" id="skillCar">
+              <label class="form-check-label" for="skillCar">자동차 운전</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name="skill" value="조리" id="skillCooking">
+              <label class="form-check-label" for="skillCooking">조리</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name="skill" value="용접" id="skillWelding">
+              <label class="form-check-label" for="skillWelding">용접</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name="skill" value="기타" id="skillEtc">
+              <label class="form-check-label" for="skillEtc">기타</label>
+            </div>
+          </div>
+        </div>
+        <!-- 14. 식사 제공 여부 (라디오 버튼) -->
+        <div class="mb-3">
+          <label class="form-label required">식사 제공 여부</label>
+          <div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="meal" id="mealYes" value="있음" required>
+              <label class="form-check-label" for="mealYes">식사 제공 있음</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="meal" id="mealNo" value="없음" required>
+              <label class="form-check-label" for="mealNo">없음</label>
+            </div>
+          </div>
+        </div>
+        <!-- 15. 기타 복지 (체크박스 다중 선택 및 기타 상세 입력란) -->
+        <div class="mb-3">
+          <label class="form-label">기타 복지</label>
+          <div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name="welfare" value="출퇴근 차량" id="welfareTransport">
+              <label class="form-check-label" for="welfareTransport">출퇴근 차량</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name="welfare" value="휴일" id="welfareHoliday">
+              <label class="form-check-label" for="welfareHoliday">휴일</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name="welfare" value="보너스" id="welfareBonus">
+              <label class="form-check-label" for="welfareBonus">보너스</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name="welfare" value="4대보험" id="welfareInsurance">
+              <label class="form-check-label" for="welfareInsurance">4대보험</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name="welfare" value="기타" id="welfareEtcCheck">
+              <label class="form-check-label" for="welfareEtcCheck">기타</label>
+            </div>
+            <div id="welfareEtcDiv" class="mt-2" style="display: none;">
+              <input type="text" id="welfareEtc" class="form-control" placeholder="기타 상세 입력">
+            </div>
+          </div>
+        </div>
+        <!-- 16. 상세 내용 (자유 입력란) -->
+        <div class="mb-3">
+          <label for="details" class="form-label">상세 내용</label>
+          <textarea id="details" class="form-control" rows="4"></textarea>
+        </div>
+        <!-- 제출 버튼 -->
+        <div class="mb-3 text-center">
+          <button type="submit" id="submitBtn" class="btn btn-primary btn-lg">구인정보 등록하기</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // 기타 복지 '기타' 체크 시 상세 입력란 보이기/숨기기
+    document.getElementById('welfareEtcCheck').addEventListener('change', function() {
+      document.getElementById('welfareEtcDiv').style.display = this.checked ? 'block' : 'none';
+    });
+
+    // 랜딩 페이지에서 등록폼으로 전환
+    document.getElementById('start-registration').addEventListener('click', function() {
+      document.getElementById('landing-section').style.display = 'none';
+      document.getElementById('registration-section').style.display = 'block';
+      window.scrollTo(0, 0);
+    });
+
+    // 폼 제출 처리
+    document.getElementById('jobForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      // 채용 가능 비자와 선호 국적은 최소 하나 이상 선택되었는지 검증
+      if (document.querySelectorAll('input[name="visa"]:checked').length === 0) {
+        alert("채용 가능 비자를 최소한 하나 선택해 주세요.");
+        return;
+      }
+      if (document.querySelectorAll('input[name="nationality"]:checked').length === 0) {
+        alert("선호 국적을 최소한 하나 선택해 주세요.");
+        return;
+      }
+
+      var submitBtn = document.getElementById('submitBtn');
+      submitBtn.disabled = true;
+      submitBtn.innerText = "버튼 누른 후 3초만 기다려주세요";
+
+      // 폼 데이터 수집
+      var formData = {
+        companyName: document.getElementById('companyName').value,
+        contactName: document.getElementById('contactName').value,
+        contactPhone: document.getElementById('contactPhone').value,
+        contactEmail: document.getElementById('contactEmail').value,
+        jobType: document.getElementById('jobType').value,
+        visa: Array.from(document.querySelectorAll('input[name="visa"]:checked')).map(el => el.value),
+        nationality: Array.from(document.querySelectorAll('input[name="nationality"]:checked')).map(el => el.value),
+        koreanLevel: document.getElementById('koreanLevel').value,
+        workRegion: document.getElementById('workRegion').value,
+        workAddress: document.getElementById('workAddress').value,
+        housing: document.querySelector('input[name="housing"]:checked') ? document.querySelector('input[name="housing"]:checked').value : "",
+        workTime: document.getElementById('workTime').value,
+        workTimeDetail: document.getElementById('workTimeDetail').value,
+        contractType: document.getElementById('contractType').value,
+        skills: Array.from(document.querySelectorAll('input[name="skill"]:checked')).map(el => el.value),
+        meal: document.querySelector('input[name="meal"]:checked') ? document.querySelector('input[name="meal"]:checked').value : "",
+        welfare: Array.from(document.querySelectorAll('input[name="welfare"]:checked')).map(el => el.value),
+        welfareEtc: document.getElementById('welfareEtc').value,
+        details: document.getElementById('details').value
+      };
+
+      // 3초 대기 후 데이터 전송 (로딩 상태 처리)
+      setTimeout(function() {
+        // Google Apps Script Web App URL (실제 URL로 변경하세요)
+        var scriptURL = "https://script.google.com/macros/s/AKfycbxI-6rVvY_nCLfBuVPQ3Yc9897gvUxMiluDVD_-tLpqCuSXBFX2_MMbRYRvoRpWlMUH/exec"; // Google Apps Script 연동용
+
+        fetch(scriptURL, {
+          method: 'POST',
+          mode: 'no-cors', // 실제 연동 시 필요에 따라 CORS 설정 조정
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData)
+        })
+        .then(function() {
+          alert("등록이 완료되었습니다");
+          document.getElementById('jobForm').reset();
+          submitBtn.disabled = false;
+          submitBtn.innerText = "구인정보 등록하기";
+        })
+        .catch(function(error) {
+          alert("오류가 발생하였습니다: " + error);
+          submitBtn.disabled = false;
+          submitBtn.innerText = "구인정보 등록하기";
+        });
+      }, 3000); // 3초 딜레이
+    });
+  </script>
+</body>
+</html>
